@@ -24,7 +24,7 @@ export const Reciever = styled(MessageElement)`
 
 export const TimeStamp = styled.span`
     color: gray;
-    padding: 10px;
+    padding: 5px;
     font-size: 10px;
     position: absolute;
     bottom: 0;
