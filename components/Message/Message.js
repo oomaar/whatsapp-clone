@@ -1,8 +1,12 @@
-const Message = () => {
+import {
+    Container,
+} from "./styledMessage";
+
+const Message = ({ user, message }) => {
     return (
-        <h1>
-            MessageScreen
-        </h1>
+        <Container>
+            <h1>Message Screen</h1>
+        </Container>
     );
 };
 

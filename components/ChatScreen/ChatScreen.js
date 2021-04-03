@@ -61,6 +61,7 @@ const ChatScreen = () => {
                 </HeaderIcons>
             </Header>
             <MessageContainer>
+                {showMessages()}
                 <EndOfMessage />
             </MessageContainer>
         </Container>
