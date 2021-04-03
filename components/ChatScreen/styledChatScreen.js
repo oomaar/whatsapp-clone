@@ -30,6 +30,31 @@ export const HeaderInfo = styled.div`
 
 export const HeaderIcons = styled.div``;
 
-export const MessageContainer = styled.div``;
+export const MessageContainer = styled.div`
+    padding: 30px;
+    background-color: #e5ded8;
+    min-height: 90vh;
+`;
 
 export const EndOfMessage = styled.div``;
+
+export const InputContainer = styled.form`
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 100;
+`;
+
+export const Input = styled.input`
+    flex: 1;
+    background-color: whitesmoke;
+    outline: 0;
+    border: 0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 15px;
+    font-size: 1rem;
+`;
