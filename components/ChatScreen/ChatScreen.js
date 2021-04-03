@@ -1,6 +1,6 @@
 import firebase from "firebase";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { Avatar } from "@material-ui/core";
@@ -25,9 +25,10 @@ import {
 } from "./styledChatScreen";
 
 const ChatScreen = ({ chat, messages }) => {
-    const [input, setInput] = useState();
     const [user] = useAuthState(auth);
+    const [input, setInput] = useState();
     const router = useRouter();
+    const endOfMessagesRef = useRef(null);
     const [messagesSnapshot] = useCollection(
         db
             .collection("chats")
@@ -65,6 +66,13 @@ const ChatScreen = ({ chat, messages }) => {
         }
     };
 
+    const scrollToBottom = () => {
+        endOfMessagesRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    };
+
     const sendMessage = e => {
         e.preventDefault();
         db
@@ -86,6 +94,7 @@ const ChatScreen = ({ chat, messages }) => {
             });
 
         setInput("");
+        scrollToBottom();
     };
 
     const recipient = recipientSnapshot?.docs?.[0]?.data();
@@ -124,7 +133,7 @@ const ChatScreen = ({ chat, messages }) => {
             </Header>
             <MessageContainer>
                 {showMessages()}
-                <EndOfMessage />
+                <EndOfMessage ref={endOfMessagesRef} />
             </MessageContainer>
             <InputContainer>
                 <InsertEmoticonIcon />
