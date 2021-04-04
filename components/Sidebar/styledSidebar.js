@@ -37,7 +37,9 @@ export const UserAvatar = styled(Avatar)`
     }
 `;
 
-export const IconsContainer = styled.div``;
+export const IconsContainer = styled.div`
+    position: relative;
+`;
 
 export const Search = styled.div`
     display: flex;
@@ -59,5 +61,24 @@ export const SidebarButton = styled(Button)`
     &&& {
         border-top: 1px solid whitesmoke;
         border-bottom: 1px solid whitesmoke;
+    }
+`;
+
+export const MoreContainer = styled.div`
+    box-shadow: 0px 4px 14px -3px rgba(0, 0, 0, 0.7);
+    position: absolute;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+`;
+
+export const SignOutLink = styled(Button)`
+    width: 100%;
+
+    &&& {
+        border-top: 1px solid whitesmoke;
+        border-bottom: 1px solid whitesmoke;
+        font-size: 12px;
+        padding: 0;
     }
 `;
